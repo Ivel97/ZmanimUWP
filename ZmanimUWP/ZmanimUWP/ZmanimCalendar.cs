@@ -92,7 +92,7 @@ namespace ZmanimUWP
         ///</summary>
         ///<param name = "location">
         ///  the location </param>
-        public ZmanimCalendar(IGeoLocation location)
+        public ZmanimCalendar(GeoLocation location)
             : base(location) { }
 
         /// <summary>
@@ -100,14 +100,14 @@ namespace ZmanimUWP
         /// </summary>
         /// <param name="date">The date.</param>
         /// <param name="location">the location</param>
-        public ZmanimCalendar(DateTime date, IGeoLocation location)
+        public ZmanimCalendar(DateTime date, GeoLocation location)
             : base(date, location) { }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ZmanimCalendar"/> class.
         /// </summary>
         /// <param name="dateWithLocation">The date with location.</param>
-        public ZmanimCalendar(IDateWithLocation dateWithLocation)
+        public ZmanimCalendar(DateWithLocation dateWithLocation)
             : base(dateWithLocation) { }
 
         /// <summary>

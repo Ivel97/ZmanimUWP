@@ -34,7 +34,7 @@ namespace ZmanimUWP.Utilities
     ///   elevation is calculated as part o the algorithm.
     /// </summary>
     /// <author>Eliyahu Hershfeld</author>
-    public class GeoLocation : IGeoLocation
+    public class GeoLocation : ICloneable
     {
         /// <summary>
         ///   constant for milliseconds in a minute (60,000)

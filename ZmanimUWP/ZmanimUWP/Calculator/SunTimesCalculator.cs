@@ -78,7 +78,7 @@ namespace ZmanimUWP.Calculator
         /// <see cref="Double.NaN"/> will be returned.
         /// </returns>
         /// <seealso cref="AstronomicalCalculator.GetUtcSunrise"/>
-        public override double GetUtcSunrise(IDateWithLocation dateWithLocation, double zenith,
+        public override double GetUtcSunrise(DateWithLocation dateWithLocation, double zenith,
                                              bool adjustForElevation)
         {
             double doubleTime = double.NaN;
@@ -121,7 +121,7 @@ namespace ZmanimUWP.Calculator
         /// <seealso cref="Double.NaN"/> will be returned.
         /// </returns>
         /// <seealso cref="AstronomicalCalculator.GetUtcSunset"/>
-        public override double GetUtcSunset(IDateWithLocation dateWithLocation, double zenith,
+        public override double GetUtcSunset(DateWithLocation dateWithLocation, double zenith,
                                             bool adjustForElevation)
         {
             double doubleTime = double.NaN;

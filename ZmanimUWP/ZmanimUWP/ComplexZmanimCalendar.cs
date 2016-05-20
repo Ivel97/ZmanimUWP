@@ -259,7 +259,7 @@ namespace ZmanimUWP
         /// Initializes a new instance of the <see cref="ComplexZmanimCalendar"/> class.
         /// </summary>
         /// <param name="location">The location.</param>
-        public ComplexZmanimCalendar(IGeoLocation location)
+        public ComplexZmanimCalendar(GeoLocation location)
             : base(location) { }
 
         /// <summary>
@@ -267,14 +267,14 @@ namespace ZmanimUWP
         /// </summary>
         /// <param name="date">The date.</param>
         /// <param name="location">The location.</param>
-        public ComplexZmanimCalendar(DateTime date, IGeoLocation location)
+        public ComplexZmanimCalendar(DateTime date, GeoLocation location)
             : base(date, location) { }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ComplexZmanimCalendar"/> class.
         /// </summary>
         /// <param name="dateWithLocation">The date with location.</param>
-        public ComplexZmanimCalendar(IDateWithLocation dateWithLocation)
+        public ComplexZmanimCalendar(DateWithLocation dateWithLocation)
             : base(dateWithLocation) { }
 
         /// <summary>

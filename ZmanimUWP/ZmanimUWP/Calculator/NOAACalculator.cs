@@ -66,7 +66,7 @@ namespace ZmanimUWP.Calculator
         /// <see cref="Double.NaN"/> will be returned.
         /// </returns>
         /// <seealso cref="AstronomicalCalculator.GetUtcSunrise"/>
-        public override double GetUtcSunrise(IDateWithLocation dateWithLocation, double zenith,
+        public override double GetUtcSunrise(DateWithLocation dateWithLocation, double zenith,
                                              bool adjustForElevation)
         {
             /*if (dateWithLocation.Date.Year <= 2000)
@@ -116,7 +116,7 @@ namespace ZmanimUWP.Calculator
         /// <seealso cref="Double.NaN"/> will be returned.
         /// </returns>
         /// <seealso cref="AstronomicalCalculator.GetUtcSunset"/>
-        public override double GetUtcSunset(IDateWithLocation dateWithLocation, double zenith,
+        public override double GetUtcSunset(DateWithLocation dateWithLocation, double zenith,
                                             bool adjustForElevation)
         {
             // if (astronomicalCalendar.getCalendar().get(Calendar.YEAR) <= 2000) {
@@ -159,7 +159,7 @@ namespace ZmanimUWP.Calculator
         ///  Java Calendar </param>
         ///<returns> the Julian day corresponding to the date Note: Number is returned
         ///  for start of day. Fractional days should be added later. </returns>
-        private static double CalcJulianDay(IDateWithLocation dateWithLocation)
+        private static double CalcJulianDay(DateWithLocation dateWithLocation)
         {
             var date = dateWithLocation.Date;
 

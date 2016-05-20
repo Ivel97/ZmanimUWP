@@ -29,7 +29,7 @@ namespace ZmanimUWP.Calculator
     ///   results of using different algorithms.
     /// </summary>
     /// <author>Eliyahu Hershfeld</author>
-    public abstract class AstronomicalCalculator : IAstronomicalCalculator
+    public abstract class AstronomicalCalculator : ICloneable
     {
         // private double refraction = 34.478885263888294 / 60d;
 
@@ -59,7 +59,7 @@ namespace ZmanimUWP.Calculator
         ///<returns> AstronomicalCalculator the default class for calculating sunrise
         ///  and sunset. In the current implementation the default calculator
         ///  returned is the <see cref = "SunTimesCalculator" />. </returns>
-        public static IAstronomicalCalculator GetDefault()
+        public static AstronomicalCalculator GetDefault()
         {
             return new SunTimesCalculator();
         }
@@ -182,7 +182,7 @@ namespace ZmanimUWP.Calculator
         /// behavior for some locations such as near the poles,
         /// <see cref="Double.NaN"/> will be returned.
         /// </returns>
-        public abstract double GetUtcSunrise(IDateWithLocation dateWithLocation, double zenith, bool adjustForElevation);
+        public abstract double GetUtcSunrise(DateWithLocation dateWithLocation, double zenith, bool adjustForElevation);
 
         /// <summary>
         /// A method that calculates UTC sunset as well as any time based on an angle
@@ -205,6 +205,6 @@ namespace ZmanimUWP.Calculator
         /// behavior for some locations such as near the poles,
         /// <seealso cref="Double.NaN"/> will be returned.
         /// </returns>
-        public abstract double GetUtcSunset(IDateWithLocation dateWithLocation, double zenith, bool adjustForElevation);
+        public abstract double GetUtcSunset(DateWithLocation dateWithLocation, double zenith, bool adjustForElevation);
     }
 }

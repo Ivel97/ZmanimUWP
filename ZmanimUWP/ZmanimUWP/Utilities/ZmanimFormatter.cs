@@ -216,10 +216,10 @@ namespace ZmanimUWP.Utilities
         ///<param name = "date">
         ///  the date to format </param>
         ///<param name = "dateWithLocation">
-        ///  the <see cref = "IDateWithLocation">TimeZone and DateTime</see> used to help format
+        ///  the <see cref = "DateWithLocation">TimeZone and DateTime</see> used to help format
         ///  based on the Calendar's DST and other settings. </param>
         ///<returns> the formatted string </returns>
-        public virtual string FormatDate(DateTime date, IDateWithLocation dateWithLocation)
+        public virtual string FormatDate(DateTime date, DateWithLocation dateWithLocation)
         {
             if (DateFormat == "yyyy-MM-dd'T'HH:mm:ss")
             {
@@ -245,7 +245,7 @@ namespace ZmanimUWP.Utilities
         ///  followed by the difference between the difference from UTC represented as
         ///  hh:mm.
         ///</summary>
-        public virtual string GetXSDate(DateTime date, IDateWithLocation cal)
+        public virtual string GetXSDate(DateTime date, DateWithLocation cal)
         {
             string xsdDateFormat = "yyyy-MM-dd'T'HH:mm:ss";
             //        

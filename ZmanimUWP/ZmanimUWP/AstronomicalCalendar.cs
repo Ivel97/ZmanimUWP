@@ -73,7 +73,7 @@ namespace ZmanimUWP
     /// 	</example>
     /// </summary>
     /// <author>Eliyahu Hershfeld</author>
-    public class AstronomicalCalendar : IAstronomicalCalendar
+    public class AstronomicalCalendar : ICloneable
     {
         ///<summary>
         ///  90° below the vertical. Used for certain calculations.<br />
@@ -146,7 +146,7 @@ namespace ZmanimUWP
         ///<param name = "geoLocation">
         ///  The location information used for astronomical calculating sun
         ///  times. </param>
-        public AstronomicalCalendar(IGeoLocation geoLocation)
+        public AstronomicalCalendar(GeoLocation geoLocation)
             : this(DateTime.Now, geoLocation) { }
 
         ///<summary>
@@ -156,14 +156,14 @@ namespace ZmanimUWP
         ///<param name = "geoLocation">
         ///  The location information used for astronomical calculating sun
         ///  times. </param>
-        public AstronomicalCalendar(DateTime dateTime, IGeoLocation geoLocation)
+        public AstronomicalCalendar(DateTime dateTime, GeoLocation geoLocation)
             : this(new DateWithLocation(dateTime, geoLocation)) { }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="AstronomicalCalendar"/> class.
         /// </summary>
         /// <param name="dateWithLocation">The date with location.</param>
-        public AstronomicalCalendar(IDateWithLocation dateWithLocation)
+        public AstronomicalCalendar(DateWithLocation dateWithLocation)
         {
             DateWithLocation = dateWithLocation;
             AstronomicalCalculator = Calculator.AstronomicalCalculator.GetDefault();
@@ -186,7 +186,7 @@ namespace ZmanimUWP
         {
             var clone = (AstronomicalCalendar)MemberwiseClone();
 
-            clone.DateWithLocation = (IDateWithLocation)DateWithLocation.Clone();
+            clone.DateWithLocation = (DateWithLocation)DateWithLocation.Clone();
             clone.AstronomicalCalculator = (AstronomicalCalculator)AstronomicalCalculator.Clone();
             return clone;
         }
@@ -833,12 +833,12 @@ namespace ZmanimUWP
         /// Gets or Sets the current AstronomicalCalculator set.
         /// </summary>
         /// <value>Returns the astronimicalCalculator.</value>
-        public virtual IAstronomicalCalculator AstronomicalCalculator { get; set; }
+        public virtual AstronomicalCalculator AstronomicalCalculator { get; set; }
 
         /// <summary>
         /// Gets or Sets the Date and Location to be used in the calculations.
         /// </summary>
         /// <value>The calendar to set.</value>
-        public virtual IDateWithLocation DateWithLocation { get; set; }
+        public virtual DateWithLocation DateWithLocation { get; set; }
     }
 }

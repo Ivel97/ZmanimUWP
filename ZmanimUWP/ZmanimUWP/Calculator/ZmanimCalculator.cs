@@ -68,7 +68,7 @@ namespace ZmanimUWP.Calculator
         /// behavior for some locations such as near the poles,
         /// <see cref="Double.NaN"/> will be returned.
         /// </returns>
-        public override double GetUtcSunrise(IDateWithLocation dateWithLocation, double zenith,
+        public override double GetUtcSunrise(DateWithLocation dateWithLocation, double zenith,
                                              bool adjustForElevation)
         {
             // zenith = adjustZenithForElevation(astronomicalCalendar, zenith,
@@ -196,7 +196,7 @@ namespace ZmanimUWP.Calculator
         /// behavior for some locations such as near the poles,
         /// <seealso cref="Double.NaN"/> will be returned.
         /// </returns>
-        public override double GetUtcSunset(IDateWithLocation dateWithLocation, double zenith,
+        public override double GetUtcSunset(DateWithLocation dateWithLocation, double zenith,
                                             bool adjustForElevation)
         {
             // zenith = adjustZenithForElevation(astronomicalCalendar, zenith,

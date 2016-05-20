@@ -6,14 +6,14 @@ namespace ZmanimUWP
     /// <summary>
     /// A simple implementation of ITimeZoneDateTime.
     /// </summary>
-    public class DateWithLocation : IDateWithLocation
+    public class DateWithLocation : ICloneable
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="DateWithLocation"/> class.
         /// </summary>
         /// <param name="date">The date.</param>
         /// <param name="location"></param>
-        public DateWithLocation(DateTime date, IGeoLocation location)
+        public DateWithLocation(DateTime date, GeoLocation location)
         {
             Date = date;
             Location = location;
@@ -29,7 +29,7 @@ namespace ZmanimUWP
         /// Gets or sets the location.
         /// </summary>
         /// <value>The location.</value>
-        public IGeoLocation Location { get; set; }
+        public GeoLocation Location { get; set; }
 
         /// <summary>
         /// Creates a new object that is a copy of the current instance.
