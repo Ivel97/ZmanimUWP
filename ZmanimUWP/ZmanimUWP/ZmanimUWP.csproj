@@ -156,29 +156,10 @@
     <Compile Include="Zmanim.TzDatebase\Utilities\RegexUtilities.cs" />
     <Compile Include="Zmanim.TzDatebase\Utilities\StringUtilities.cs" />
     <Compile Include="ZmanimCalendar.cs" />
-    <Compile Include="ZmanimTests\JewishDatesTest.cs" />
-    <Compile Include="ZmanimTests\LinqTests.cs" />
-    <Compile Include="ZmanimTests\NOAACalculatorTests.cs" />
-    <Compile Include="ZmanimTests\Properties\AssemblyInfo.cs" />
-    <Compile Include="ZmanimTests\TestDateExtensions.cs" />
-    <Compile Include="ZmanimTests\TestGeneration\TestFormatters\DotNetTestFormatter.cs" />
-    <Compile Include="ZmanimTests\TestGeneration\TestFormatters\DotNetTestFormatterWithMilliseconds.cs" />
-    <Compile Include="ZmanimTests\TestGeneration\TestFormatters\ITestFormatter.cs" />
-    <Compile Include="ZmanimTests\TestGeneration\TestFormatters\JavaTestFormatter.cs" />
-    <Compile Include="ZmanimTests\TestGeneration\TestFormatters\JavaTestFormatterWithMilliseconds.cs" />
-    <Compile Include="ZmanimTests\TestGeneration\TestMethodGenerators\DateTimeTestMethodGenerator.cs" />
-    <Compile Include="ZmanimTests\TestGeneration\TestMethodGenerators\ITestMethodGenerator.cs" />
-    <Compile Include="ZmanimTests\TestGeneration\TestMethodGenerators\LongTestMethodGenerator.cs" />
-    <Compile Include="ZmanimTests\ZmanimTests.cs" />
-    <Compile Include="ZmanimTests\ZmanimTestWithMilliseconds.cs" />
-    <Compile Include="ZmanimTests\ZmanimUnavailableLocationTest.cs" />
-    <Compile Include="ZmanimTests\ZmanMethodGenerator.cs" />
-    <Compile Include="ZmanimTests\ZmanMiscTests.cs" />
     <EmbeddedResource Include="Properties\ZmanimUWP.rd.xml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Zmanim.TzDatebase\Zmanim.TzDatebase.csproj" />
-    <Content Include="ZmanimTests\ZmanimTests.csproj" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
