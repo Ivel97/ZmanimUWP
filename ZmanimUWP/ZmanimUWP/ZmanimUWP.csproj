@@ -122,6 +122,8 @@
     <Compile Include="HebrewCalendar\JewishCalendar.cs" />
     <Compile Include="HebrewCalendar\JewishDate.cs" />
     <Compile Include="HebrewCalendar\YomiCalculator.cs" />
+    <Compile Include="IDeepCloneable.cs" />
+    <Compile Include="IShallowCloneable.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TimeZone\ITimeZone.cs" />
     <Compile Include="TimeZone\OffsetTimeZone.cs" />

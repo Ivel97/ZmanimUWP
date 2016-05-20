@@ -5,7 +5,7 @@ namespace ZmanimUWP.TimeZone
     ///<summary>
     /// Provides the most basic useage of a TimeZone.
     ///</summary>
-    public interface ITimeZone : ICloneable
+    public interface ITimeZone : IShallowCloneable
     {
         /// <summary>
         /// UTCs the offset.

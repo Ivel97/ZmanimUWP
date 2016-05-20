@@ -52,7 +52,7 @@ namespace ZmanimUWP.HebrewCalendar
     /// @author &copy; Avrom Finkelstien 2002
     /// @author &copy; Eliyahu Hershfeld 2011 - 2012
     /// @version 0.0.1 </seealso>
-    public class JewishCalendar : JewishDate, ICloneable
+    public class JewishCalendar : JewishDate, IDeepCloneable
     {
         public const int EREV_PESACH = 0;
         public const int PESACH = 1;
@@ -880,7 +880,7 @@ namespace ZmanimUWP.HebrewCalendar
             return result;
         }
 
-        public object Clone()
+        public object DeepClone()
         {
             return ObjectCopierExtensions.Clone(this);
         }

@@ -167,7 +167,7 @@ namespace ZmanimUWP.HebrewCalendar
             }
 
             // This method is only about formatting, so we shouldn't make any changes to the params passed in...
-            jewishCalendar = (JewishCalendar)jewishCalendar.Clone();
+            jewishCalendar = (JewishCalendar)jewishCalendar.DeepClone();
             jewishCalendar.JewishMonth = month;
             formattedRoshChodesh = hebrewFormat ? hebrewHolidays[JewishCalendar.ROSH_CHODESH] : transliteratedHolidays[JewishCalendar.ROSH_CHODESH];
             formattedRoshChodesh += " " + formatMonth(jewishCalendar);

@@ -6,7 +6,7 @@ namespace ZmanimUWP
     /// <summary>
     /// A simple implementation of ITimeZoneDateTime.
     /// </summary>
-    public class DateWithLocation : ICloneable
+    public class DateWithLocation : IShallowCloneable
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="DateWithLocation"/> class.
@@ -37,7 +37,7 @@ namespace ZmanimUWP
         /// <returns>
         /// A new object that is a copy of this instance.
         /// </returns>
-        public object Clone()
+        public object ShallowClone()
         {
             return MemberwiseClone();
         }

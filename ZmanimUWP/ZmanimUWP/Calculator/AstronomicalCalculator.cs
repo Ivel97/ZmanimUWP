@@ -29,7 +29,7 @@ namespace ZmanimUWP.Calculator
     ///   results of using different algorithms.
     /// </summary>
     /// <author>Eliyahu Hershfeld</author>
-    public abstract class AstronomicalCalculator : ICloneable
+    public abstract class AstronomicalCalculator : IShallowCloneable
     {
         // private double refraction = 34.478885263888294 / 60d;
 
@@ -48,7 +48,7 @@ namespace ZmanimUWP.Calculator
         /// <returns>
         /// A new object that is a copy of this instance.
         /// </returns>
-        public object Clone()
+        public object ShallowClone()
         {
             return MemberwiseClone();
         }

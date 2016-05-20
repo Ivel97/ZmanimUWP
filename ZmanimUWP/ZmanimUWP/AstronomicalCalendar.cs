@@ -73,7 +73,7 @@ namespace ZmanimUWP
     /// 	</example>
     /// </summary>
     /// <author>Eliyahu Hershfeld</author>
-    public class AstronomicalCalendar : ICloneable
+    public class AstronomicalCalendar : IDeepCloneable
     {
         ///<summary>
         ///  90° below the vertical. Used for certain calculations.<br />
@@ -182,12 +182,12 @@ namespace ZmanimUWP
         /// <returns>
         /// A new object that is a copy of this instance.
         /// </returns>
-        public virtual object Clone()
+        public virtual object DeepClone()
         {
             var clone = (AstronomicalCalendar)MemberwiseClone();
 
-            clone.DateWithLocation = (DateWithLocation)DateWithLocation.Clone();
-            clone.AstronomicalCalculator = (AstronomicalCalculator)AstronomicalCalculator.Clone();
+            clone.DateWithLocation = (DateWithLocation)DateWithLocation.ShallowClone();
+            clone.AstronomicalCalculator = (AstronomicalCalculator)AstronomicalCalculator.ShallowClone();
             return clone;
         }
 

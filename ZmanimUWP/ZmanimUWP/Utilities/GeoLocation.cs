@@ -34,7 +34,7 @@ namespace ZmanimUWP.Utilities
     ///   elevation is calculated as part o the algorithm.
     /// </summary>
     /// <author>Eliyahu Hershfeld</author>
-    public class GeoLocation : ICloneable
+    public class GeoLocation : IDeepCloneable
     {
         /// <summary>
         ///   constant for milliseconds in a minute (60,000)
@@ -149,10 +149,10 @@ namespace ZmanimUWP.Utilities
         /// <returns>
         /// A new object that is a copy of this instance.
         /// </returns>
-        public virtual object Clone()
+        public virtual object DeepClone()
         {
             var clone = (GeoLocation)MemberwiseClone();
-            clone.timeZone = (ITimeZone)TimeZone.Clone();
+            clone.timeZone = (ITimeZone)TimeZone.ShallowClone();
             clone.locationName = LocationName;
             return clone;
         }

@@ -46,7 +46,7 @@ namespace ZmanimUWP.TimeZone
         /// <returns>
         /// A new object that is a copy of this instance.
         /// </returns>
-        public object Clone()
+        public object ShallowClone()
         {
             return MemberwiseClone();
         }

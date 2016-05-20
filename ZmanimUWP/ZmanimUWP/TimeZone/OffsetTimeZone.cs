@@ -10,7 +10,7 @@ namespace ZmanimUWP.TimeZone
     {
         private readonly TimeSpan offsetFromGmt;
 
-        public object Clone()
+        public object ShallowClone()
         {
             return MemberwiseClone();
         }
