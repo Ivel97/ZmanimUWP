@@ -116,7 +116,6 @@
     <Compile Include="Utilities\DateWithLocation.cs" />
     <Compile Include="Extensions\DateExtensions.cs" />
     <Compile Include="Extensions\MathExtensions.cs" />
-    <Compile Include="Extensions\ObjectCopierExtensions.cs" />
     <Compile Include="Utilities\IDeepCloneable.cs" />
     <Compile Include="Utilities\IShallowCloneable.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
