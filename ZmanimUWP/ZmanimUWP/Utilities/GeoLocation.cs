@@ -22,7 +22,6 @@ using System;
 using System.Text;
 using ZmanimUWP.Calculator;
 using ZmanimUWP.Extensions;
-using ZmanimUWP.TimeZone;
 
 namespace ZmanimUWP.Utilities
 {
@@ -34,7 +33,7 @@ namespace ZmanimUWP.Utilities
     ///   elevation is calculated as part o the algorithm.
     /// </summary>
     /// <author>Eliyahu Hershfeld</author>
-    public class GeoLocation : IDeepCloneable
+    public class GeoLocation : IShallowCloneable
     {
         /// <summary>
         ///   constant for milliseconds in a minute (60,000)
@@ -54,7 +53,7 @@ namespace ZmanimUWP.Utilities
         private double latitude;
         private string locationName;
         private double longitude;
-        private ITimeZone timeZone;
+        private TimeZoneInfo timeZone;
 
         ///<summary>
         ///  GeoLocation constructor with parameters for all required fields.
@@ -70,7 +69,7 @@ namespace ZmanimUWP.Utilities
         ///    Meridian </a> (Greenwich), a negative value should be used. </param>
         ///<param name = "timeZone">
         ///  the <c>TimeZone</c> for the location. </param>
-        public GeoLocation(double latitude, double longitude, ITimeZone timeZone)
+        public GeoLocation(double latitude, double longitude, TimeZoneInfo timeZone)
             : this(string.Empty, latitude, longitude, 0, timeZone)
         {
         }
@@ -92,7 +91,7 @@ namespace ZmanimUWP.Utilities
         ///    Meridian </a> (Greenwich), a negative value should be used. </param>
         ///<param name = "timeZone">
         ///  the <c>TimeZone</c> for the location. </param>
-        public GeoLocation(string name, double latitude, double longitude, ITimeZone timeZone)
+        public GeoLocation(string name, double latitude, double longitude, TimeZoneInfo timeZone)
             : this(name, latitude, longitude, 0, timeZone)
         {
         }
@@ -118,7 +117,7 @@ namespace ZmanimUWP.Utilities
         ///  in most algorithms used for calculating sunrise and set. </param>
         ///<param name = "timeZone">
         ///  the <c>TimeZone</c> for the location. </param>
-        public GeoLocation(string name, double latitude, double longitude, double elevation, ITimeZone timeZone)
+        public GeoLocation(string name, double latitude, double longitude, double elevation, TimeZoneInfo timeZone)
         {
             LocationName = name;
             Latitude = latitude;
@@ -140,7 +139,7 @@ namespace ZmanimUWP.Utilities
             LocationName = "Greenwich, England";
             Longitude = 0; // added for clarity
             Latitude = 51.4772;
-            TimeZone = new WindowsTimeZone(TimeZoneInfo.Utc);
+            TimeZone = TimeZoneInfo.Utc;
         }
 
         /// <summary>
@@ -149,12 +148,9 @@ namespace ZmanimUWP.Utilities
         /// <returns>
         /// A new object that is a copy of this instance.
         /// </returns>
-        public virtual object DeepClone()
+        public virtual object ShallowClone()
         {
-            var clone = (GeoLocation)MemberwiseClone();
-            clone.timeZone = (ITimeZone)TimeZone.ShallowClone();
-            clone.locationName = LocationName;
-            return clone;
+            return (GeoLocation)MemberwiseClone();
         }
 
         ///<summary>
@@ -297,7 +293,7 @@ namespace ZmanimUWP.Utilities
 
 
         ///<value> Returns the timeZone. </value>
-        public virtual ITimeZone TimeZone
+        public virtual TimeZoneInfo TimeZone
         {
             get { return timeZone; }
             set { this.timeZone = value; }
@@ -323,7 +319,7 @@ namespace ZmanimUWP.Utilities
         /// </returns>
         public virtual long GetLocalMeanTimeOffset(DateTime date)
         {
-            return (long)(Longitude * 4 * MINUTE_MILLIS - TimeZone.UtcOffset(date));
+            return (long)(Longitude * 4 * MINUTE_MILLIS - TimeZone.GetUtcOffset(date).TotalMilliseconds);
         }
 
         ///<summary>
@@ -537,8 +533,8 @@ namespace ZmanimUWP.Utilities
             sb.Append("\t<Latitude>").Append(Latitude).Append("°").Append("</Latitude>\n");
             sb.Append("\t<Longitude>").Append(Longitude).Append("°").Append("</Longitude>\n");
             sb.Append("\t<Elevation>").Append(Elevation).Append(" Meters").Append("</Elevation>\n");
-            sb.Append("\t<TimezoneName>").Append(TimeZone.GetId()).Append("</TimezoneName>\n");
-            sb.Append("\t<TimeZoneDisplayName>").Append(TimeZone.GetDisplayName()).Append(
+            sb.Append("\t<TimezoneName>").Append(TimeZone.Id).Append("</TimezoneName>\n");
+            sb.Append("\t<TimeZoneDisplayName>").Append(TimeZone.DisplayName).Append(
                 "</TimeZoneDisplayName>\n");
             /*
             sb.Append("\t<TimezoneGMTOffset>").Append(getTimeZone().getRawOffset() / HOUR_MILLIS).Append(
@@ -611,7 +607,7 @@ namespace ZmanimUWP.Utilities
             sb.Append("\nLatitude:\t\t\t").Append(Latitude).Append("°");
             sb.Append("\nLongitude:\t\t\t").Append(Longitude).Append("°");
             sb.Append("\nElevation:\t\t\t").Append(Elevation).Append(" Meters");
-            sb.Append("\nTimezone Name:\t\t\t").Append(TimeZone.GetId());
+            sb.Append("\nTimezone Name:\t\t\t").Append(TimeZone.Id);
             //        
             //		 * sb.append("\nTimezone Display Name:\t\t").append(
             //		 * getTimeZone().getDisplayName());
