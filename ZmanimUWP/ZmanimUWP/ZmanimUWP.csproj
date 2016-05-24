@@ -117,11 +117,6 @@
     <Compile Include="Extensions\DateExtensions.cs" />
     <Compile Include="Extensions\MathExtensions.cs" />
     <Compile Include="Extensions\ObjectCopierExtensions.cs" />
-    <Compile Include="HebrewCalendar\Daf.cs" />
-    <Compile Include="HebrewCalendar\HebrewDateFormatter.cs" />
-    <Compile Include="HebrewCalendar\JewishCalendar.cs" />
-    <Compile Include="HebrewCalendar\JewishDate.cs" />
-    <Compile Include="HebrewCalendar\YomiCalculator.cs" />
     <Compile Include="Utilities\IDeepCloneable.cs" />
     <Compile Include="Utilities\IShallowCloneable.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
