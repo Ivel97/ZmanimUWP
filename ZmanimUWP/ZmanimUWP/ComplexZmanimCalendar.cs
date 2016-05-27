@@ -1798,7 +1798,7 @@ namespace ZmanimUWP
             if (GetMinchaGedola30Minutes() == null || GetMinchaGedola() == null)
                 return null;
 
-            return GetMinchaGedola30Minutes().Value.CompareTo(GetMinchaGedola()) > 0
+            return GetMinchaGedola30Minutes().Value.CompareTo(GetMinchaGedola().Value) > 0
                        ? GetMinchaGedola30Minutes()
                        : GetMinchaGedola();
         }

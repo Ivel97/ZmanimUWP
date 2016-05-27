@@ -340,7 +340,7 @@ namespace ZmanimUWP
         /// </returns>
         private DateTime? GetAdjustedSunsetDate(DateTime? sunset, DateTime? sunrise)
         {
-            if (sunset == null || sunrise == null || sunrise.Value.CompareTo(sunset) < 0)
+            if (sunset == null || sunrise == null || sunrise.Value.CompareTo(sunset.Value) < 0)
                 return sunset;
 
             return sunset.Value.AddDays(1);
