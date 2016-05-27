@@ -163,7 +163,14 @@ namespace ZmanimUWP.Calculator
         {
             var date = dateWithLocation.Date;
 
-            return new DateTime(date.Year, date.Month, date.Day).ToOADate() + 2415018.5;
+            //return new DateTime(date.Year, date.Month, date.Day).ToOADate() + 2415018.5;
+
+            //Note the algorithm used in the original Java version returns a different result, it adds 1 to the month.
+            //Link: https://github.com/KosherJava/zmanim/blob/master/src/net/sourceforge/zmanim/util/NOAACalculator.java TODO: Figure out why
+
+            TimeSpan tSpan = date.Subtract(new DateTime(1899, 12, 30));
+
+            return tSpan.TotalDays + 2415018.5;
         }
 
         ///<summary>
