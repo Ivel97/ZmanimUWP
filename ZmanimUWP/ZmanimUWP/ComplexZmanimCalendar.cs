@@ -2918,7 +2918,7 @@ namespace ZmanimUWP
         {
             return GetTimeOffset(
                 GetDateFromTime(
-                12.0 - DateWithLocation.Location.TimeZone.UtcOffset(DateWithLocation.Date) / HOUR_MILLIS),
+                12.0 - DateWithLocation.Location.TimeZone.GetUtcOffset(DateWithLocation.Date).TotalHours),
                                  -DateWithLocation.Location.GetLocalMeanTimeOffset(DateWithLocation.Date));
         }
 

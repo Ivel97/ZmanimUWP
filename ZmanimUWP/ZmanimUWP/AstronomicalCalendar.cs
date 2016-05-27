@@ -606,7 +606,8 @@ namespace ZmanimUWP
         private double GetOffsetTime(double time)
         {
             // be nice to Newfies and use a double
-            long gmtOffset = DateWithLocation.Location.TimeZone.UtcOffset(DateWithLocation.Date) / (60 * MINUTE_MILLIS);
+            // Not sure why it was a long. TODO: Find out why
+            double gmtOffset = DateWithLocation.Location.TimeZone.GetUtcOffset(DateWithLocation.Date).TotalHours;
 
             return time + gmtOffset;
         }

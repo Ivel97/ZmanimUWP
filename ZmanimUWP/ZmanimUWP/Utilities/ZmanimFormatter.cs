@@ -257,7 +257,7 @@ namespace ZmanimUWP.Utilities
             var buff = new StringBuilder(date.ToString(xsdDateFormat));
             // Must also include offset from UTF.
             // Get the offset (in milliseconds).
-            int offset = cal.Location.TimeZone.UtcOffset(cal.Date);
+            int offset = (int)cal.Location.TimeZone.GetUtcOffset(cal.Date).TotalMilliseconds;
             // If there is no offset, we have "Coordinated
             // Universal Time."
             if (offset == 0)
@@ -378,11 +378,10 @@ namespace ZmanimUWP.Utilities
             output.Append(" latitude=\"" + ac.DateWithLocation.Location.Latitude + "\"");
             output.Append(" longitude=\"" + ac.DateWithLocation.Location.Longitude + "\"");
             output.Append(" elevation=\"" + ac.DateWithLocation.Location.Elevation + "\"");
-            output.Append(" timeZoneName=\"" + ac.DateWithLocation.Location.TimeZone.GetDisplayName() + "\"");
-            output.Append(" timeZoneID=\"" + ac.DateWithLocation.Location.TimeZone.GetId() + "\"");
+            output.Append(" timeZoneName=\"" + ac.DateWithLocation.Location.TimeZone.DisplayName + "\"");
+            output.Append(" timeZoneID=\"" + ac.DateWithLocation.Location.TimeZone.Id + "\"");
             output.Append(" timeZoneOffset=\"" +
-                          (ac.DateWithLocation.Location.TimeZone.GetOffset(ac.DateWithLocation.Date.ToFileTime()) /
-                           ((double)HOUR_MILLIS)) + "\"");
+                          (ac.DateWithLocation.Location.TimeZone.GetUtcOffset(ac.DateWithLocation.Date).TotalHours + "\""));
 
             output.Append(">\n");
 
